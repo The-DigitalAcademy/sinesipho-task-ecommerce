@@ -128,7 +128,7 @@ function homeDisplayProducts() {
               <div class="product__price">R <span>${productsState[s].price}</span></div> 
                 <button onclick="clear()">remove</button>
           </div>
-
+    
     `
   }
 
