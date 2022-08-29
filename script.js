@@ -73,10 +73,10 @@ const products = document.getElementById("products")
 let shopping = document.getElementById("shopping")
 let addNew = document.getElementById("addNew")
 
-let countNum = 0;
+let count = 0;
 
 function orders() {
-  shopping = document.getElementById("shopping").innerHTML = ++ countNum;
+  shopping = document.getElementById("shopping").innerHTML = ++ count;
 
 }
 
@@ -107,29 +107,6 @@ function homeDisplayProducts() {
     
     `
     
-  }
-
-  addNew.innerHTML = ""
-
-  for (let s = 0; s < productsState.length; s++) {
-    
-    addNew.innerHTML = `
-    <div class="product">
-        <div class="product__img">
-            <img
-              src=${productsState[s].image}
-              alt=""
-            />
-        </div>
-            <div class="product__name">${productsState[s].name}</div>
-              <div class="product__rate">
-                ${'<span>*</span>'.repeat(productsState[s].rates)}
-              </div>
-              <div class="product__price">R <span>${productsState[s].price}</span></div> 
-                <button onclick="clear()">remove</button>
-          </div>
-    
-    `
   }
 
 
