@@ -75,7 +75,7 @@ let addNew = document.getElementById("addNew")
 
 let countNum = 0;
 
-function orders(){
+function orders() {
   shopping = document.getElementById("shopping").innerHTML = ++ countNum;
 
 }
