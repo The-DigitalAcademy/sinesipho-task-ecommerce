@@ -81,14 +81,12 @@ function orders() {
 }
 
 
-
-
 // DISPLAY PRODUCTS IN HOME PAGE
 function homeDisplayProducts() {
-  productsEl.innerHTML = ""
+  productsEl.innerHTML += ""
   // loop into productsState and display
   for (let i = 0; i < productsState.length; i++) {
-    products.innerHTML += `
+    productsEl.innerHTML += `
     
     <div class="product">
         <div class="product__img">
@@ -105,32 +103,9 @@ function homeDisplayProducts() {
                 <button onclick="orders()">+ ADD TO CART</button> 
           </div>
     
-    `
-    
+    ` 
   }
 
-  addNew.innerHTML = ""
-
-  for (let s = 0; s < productsState.length; s++) {
-    
-    addNew.innerHTML = `
-    <div class="product">
-        <div class="product__img">
-            <img
-              src=${productsState[s].image}
-              alt=""
-            />
-        </div>
-            <div class="product__name">${productsState[s].name}</div>
-              <div class="product__rate">
-                ${'<span>*</span>'.repeat(productsState[s].rates)}
-              </div>
-              <div class="product__price">R <span>${productsState[s].price}</span></div> 
-                <button onclick="clear()">remove</button>
-          </div>
-    
-    `
-  }
 
 
 }
