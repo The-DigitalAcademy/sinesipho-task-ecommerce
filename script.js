@@ -69,7 +69,7 @@ var productsState = [
 
 
 // LINK JS TO HTML ELEMENT
-const products = document.getElementById("products")
+const productsEl = document.getElementById("products")
 let shopping = document.getElementById("shopping")
 let addNew = document.getElementById("addNew")
 
@@ -85,7 +85,7 @@ function orders() {
 
 // DISPLAY PRODUCTS IN HOME PAGE
 function homeDisplayProducts() {
-    products.innerHTML = ""
+  productsEl.innerHTML = ""
   // loop into productsState and display
   for (let i = 0; i < productsState.length; i++) {
     products.innerHTML += `
@@ -107,6 +107,29 @@ function homeDisplayProducts() {
     
     `
     
+  }
+
+  addNew.innerHTML = ""
+
+  for (let s = 0; s < productsState.length; s++) {
+    
+    addNew.innerHTML = `
+    <div class="product">
+        <div class="product__img">
+            <img
+              src=${productsState[s].image}
+              alt=""
+            />
+        </div>
+            <div class="product__name">${productsState[s].name}</div>
+              <div class="product__rate">
+                ${'<span>*</span>'.repeat(productsState[s].rates)}
+              </div>
+              <div class="product__price">R <span>${productsState[s].price}</span></div> 
+                <button onclick="clear()">remove</button>
+          </div>
+    
+    `
   }
 
 
