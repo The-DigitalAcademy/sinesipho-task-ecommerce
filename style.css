@@ -300,4 +300,9 @@ a,
     border-radius: 0.5rem;
     transition: var(--transition);
   }
+
+#cartBtn {
+  width: 10rem;
+  height: 2rem;
+}
 }
