@@ -70,13 +70,8 @@ let selectpeople = []
 
 // LINK JS TO HTML ELEMENT
 const products = document.getElementById('products')
-const countId = document.getElementById('countId')
+const cartBtn = document.getElementById('cartBtn')
 
-function addshow(i) {
-  selectpeople.push(productsState[i]) 
-  countId.innerHTML = selectpeople.length
-  
-}
 
 // DISPLAY PRODUCTS IN HOME PAGE
 function homeDisplayProducts() {
@@ -97,13 +92,50 @@ function homeDisplayProducts() {
                 ${'<span>*</span>'.repeat(productsState[i].rates)}
               </div>
               <div class="product__price">R <span>${productsState[i].price}</span></div> 
-                <button onclick="addshow()">+ ADD TO CART</button> 
+                <button onclick="displayId(${i})">+ ADD TO CART</button> 
           </div>
     
     `
     
   }
+  count.innerHTML = selectpeople.length
 }
+
+function displayId(i) {
+  document.getElementById('count').innerHTML = selectpeople.length
+  selectpeople.push(productsState[i])
+
+  homeDisplayProducts()
+
+  picture()
+}
+
+function picture() {
+  cartBtn.innerHTML = ""
+  // loop into productsState and display
+  for (let i = 0; i < selectpeople.length; i++) {
+    cartBtn.innerHTML += `
+    
+    <div class="product">
+        <div class="product__img">
+            <img
+              src=${selectpeople[i].image}
+              alt=""
+            />
+        </div>
+            <div class="product__name">${selectpeople[i].name}</div>
+              <div class="product__rate">
+                ${'<span>*</span>'.repeat(selectpeople[i].rates)}
+              </div>
+              <div class="product__price">R <span>${selectpeople[i].price}</span></div> 
+                <button onclick="remove(${i})">- ADD TO CART</button> 
+          </div>
+    
+    `
+}
+
+}
+
 
 
 // CALL THE DISPLAY FUNCTION
