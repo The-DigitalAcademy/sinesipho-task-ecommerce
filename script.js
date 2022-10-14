@@ -70,8 +70,8 @@ let selectpeople = []
 
 // LINK JS TO HTML ELEMENT
 const products = document.getElementById('products')
-const cartBtn = document.getElementById('cartBtn')
-const total = document.getElementById('total')
+const show = document.getElementById('show')
+const totalpicture = document.getElementById('totalpicture')
 
 
 // DISPLAY PRODUCTS IN HOME PAGE
@@ -95,9 +95,7 @@ function homeDisplayProducts() {
               <div class="product__price">R <span>${productsState[i].price}</span></div> 
                 <button onclick="displayId(${i})">+ ADD TO CART</button> 
           </div>
-    
-    `
-    
+    ` 
   }
   count.innerHTML = selectpeople.length
 }
@@ -107,18 +105,16 @@ function displayId(i) {
   document.getElementById('count').innerHTML = selectpeople.length
   selectpeople.push(productsState[i])
 
+  price();
+  money();
   homeDisplayProducts()
-
-  picture()
 }
 
 function picture() {
-  cartBtn.innerHTML = ""
+  show.innerHTML = ""
   // loop into productsState and display
   for (let i = 0; i < selectpeople.length; i++) {
-    cartBtn.innerHTML += `
-    
-    <div class="product">
+    show.innerHTML += `<div class="product">
         <div class="product__img">
             <img
               src=${selectpeople[i].image}
@@ -136,17 +132,29 @@ function picture() {
     `
 }
 
+
 }
 
 function remove(i) {
   selectpeople.splice(i, 1)
-  document.getElementById(' count').innerHTML = selectpeople.length;
+  document.getElementById('count').innerHTML = selectpeople.length;
 
   picture();
+  money();
   homeDisplayProducts();
 
 }
 
+function money() {
+
+  let total = 0;
+
+  for (let i = 0; i < selectpeople.length; i++) {
+    total =+ selectpeople[i].price
+    
+  }
+  totalpicture.innerHTML = `R${total}`
+}
 
 // CALL THE DISPLAY FUNCTION
 homeDisplayProducts()
