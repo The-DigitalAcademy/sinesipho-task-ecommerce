@@ -97,16 +97,16 @@ function homeDisplayProducts() {
           </div>
     ` 
   }
-  count.innerHTML = selectpeople.length
+  count.innerHTML = selectpeople.length;
 }
 
 // FUNCTION FOR DISPLAY PICTURE
 function displayId(i) {
-  document.getElementById('count').innerHTML = selectpeople.length
+  document.getElementById('count').innerHTML = selectpeople.length;
   selectpeople.push(productsState[i])
 
-  price();
   money();
+  price();
   homeDisplayProducts()
 }
 
@@ -139,8 +139,9 @@ function remove(i) {
   selectpeople.splice(i, 1)
   document.getElementById('count').innerHTML = selectpeople.length;
 
-  picture();
   money();
+
+  picture();
   homeDisplayProducts();
 
 }
