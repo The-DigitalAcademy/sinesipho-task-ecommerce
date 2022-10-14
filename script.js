@@ -6,7 +6,7 @@ var productsState = [
     price: 28000,
     rates: 5,
     image:
-      'https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg',
+      'https://img.ltwebstatic.com/images3_pi/2022/07/11/1657537767b28bd7d5fd708bb16b583a6aceb712b2_thumbnail_405x552.webp',
   },
   {
     id: 2,
@@ -71,6 +71,7 @@ let selectpeople = []
 // LINK JS TO HTML ELEMENT
 const products = document.getElementById('products')
 const cartBtn = document.getElementById('cartBtn')
+const total = document.getElementById('total')
 
 
 // DISPLAY PRODUCTS IN HOME PAGE
@@ -101,6 +102,7 @@ function homeDisplayProducts() {
   count.innerHTML = selectpeople.length
 }
 
+// FUNCTION FOR DISPLAY PICTURE
 function displayId(i) {
   document.getElementById('count').innerHTML = selectpeople.length
   selectpeople.push(productsState[i])
@@ -136,6 +138,14 @@ function picture() {
 
 }
 
+function remove(i) {
+  selectpeople.splice(i, 1)
+  document.getElementById(' count').innerHTML = selectpeople.length;
+
+  picture();
+  homeDisplayProducts();
+
+}
 
 
 // CALL THE DISPLAY FUNCTION
