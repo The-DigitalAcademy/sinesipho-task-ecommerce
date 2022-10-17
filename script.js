@@ -70,7 +70,7 @@ let selectpeople = []
 
 // LINK JS TO HTML ELEMENT
 const products = document.getElementById('products')
-const show = document.getElementById('show')
+const imagid = document.getElementById('imagid')
 const totalpicture = document.getElementById('totalpicture')
 
 
@@ -97,13 +97,14 @@ function homeDisplayProducts() {
           </div>
     ` 
   }
-  count.innerHTML = selectpeople.length;
+  count.innerHTML = selectpeople.length
 }
 
 // FUNCTION FOR DISPLAY PICTURE
 function displayId(i) {
-  document.getElementById('count').innerHTML = selectpeople.length;
   selectpeople.push(productsState[i])
+  document.getElementById('count').innerHTML = selectpeople.length;
+  
 
   money();
   price();
@@ -111,10 +112,10 @@ function displayId(i) {
 }
 
 function picture() {
-  show.innerHTML = ""
+  imagid.innerHTML = ""
   // loop into productsState and display
   for (let i = 0; i < selectpeople.length; i++) {
-    show.innerHTML += `<div class="product">
+    imagid.innerHTML += `<div class="product">
         <div class="product__img">
             <img
               src=${selectpeople[i].image}
@@ -126,12 +127,10 @@ function picture() {
                 ${'<span>*</span>'.repeat(selectpeople[i].rates)}
               </div>
               <div class="product__price">R <span>${selectpeople[i].price}</span></div> 
-                <button onclick="remove(${i})">- ADD TO CART</button> 
+                <button onclick="remove(${i})">- REMOVE</button> 
           </div>
-    
     `
 }
-
 
 }
 
@@ -151,8 +150,7 @@ function money() {
   let total = 0;
 
   for (let i = 0; i < selectpeople.length; i++) {
-    total =+ selectpeople[i].price
-    
+    total += selectpeople[i].price  
   }
   totalpicture.innerHTML = `R${total}`
 }
