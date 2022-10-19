@@ -107,15 +107,16 @@ function displayId(i) {
   
 
   money();
-  price();
+  picture();
   homeDisplayProducts()
 }
 
 function picture() {
   imagid.innerHTML = ""
-  // loop into productsState and display
   for (let i = 0; i < selectpeople.length; i++) {
-    imagid.innerHTML += `<div class="product">
+    imagid.innerHTML += `<div class="products" id="imagid">
+     </div>
+    <div class="product">
         <div class="product__img">
             <img
               src=${selectpeople[i].image}
@@ -129,7 +130,7 @@ function picture() {
               <div class="product__price">R <span>${selectpeople[i].price}</span></div> 
                 <button onclick="remove(${i})">- REMOVE</button> 
           </div>
-    `
+    ` 
 }
 
 }
