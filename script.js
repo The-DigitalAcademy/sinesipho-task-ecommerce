@@ -114,8 +114,7 @@ function displayId(i) {
 function picture() {
   imagid.innerHTML = ""
   for (let i = 0; i < selectpeople.length; i++) {
-    imagid.innerHTML += `<div class="products" id="imagid">
-     </div>
+    imagid.innerHTML += `
     <div class="product">
         <div class="product__img">
             <img
