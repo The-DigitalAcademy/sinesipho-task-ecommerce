@@ -108,7 +108,9 @@ function displayId(i) {
 
   money();
   picture();
-  homeDisplayProducts()
+  homeDisplayProducts();
+  saveToLocalStorage();
+  getToLocalStorage();
 }
 
 function picture() {
@@ -131,6 +133,8 @@ function picture() {
           </div>
     ` 
 }
+saveToLocalStorage();
+getToLocalStorage();
 
 }
 
@@ -141,6 +145,8 @@ function remove(i) {
   money();
 
   picture();
+  saveToLocalStorage();
+  getToLocalStorage();
   homeDisplayProducts();
 
 }
@@ -153,6 +159,18 @@ function money() {
     total += selectpeople[i].price  
   }
   totalpicture.innerHTML = `R${total}`
+  saveToLocalStorage();
+  getToLocalStorage();
+}
+
+function saveToLocalStorage() {
+  let data = JSON.stringify(selectpeople)
+  localStorage.setItem('selectpeople', data)
+}
+
+function getToLocalStorage() {
+  let data = JSON.parse(localStorage.getItem('selectpeople'))
+  selectpeople = data
 }
 
 // CALL THE DISPLAY FUNCTION
