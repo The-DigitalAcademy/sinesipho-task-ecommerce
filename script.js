@@ -108,9 +108,9 @@ function displayId(i) {
 
   money();
   picture();
-  homeDisplayProducts();
   saveToLocalStorage();
   getToLocalStorage();
+  homeDisplayProducts();
 }
 
 function picture() {
